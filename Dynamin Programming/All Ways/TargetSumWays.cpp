@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// ! Recursive code :
+// Recursive code :
 
 class Solution
 {
@@ -27,10 +27,10 @@ public:
     }
 };
 
-// ! ********************************************************************************
-// ! Memoization with MAP
-// ! sum can be negative values too
-// ! If sum = -5; dp[idx][sum] ?
+// ********************************************************************************
+// Memoization with MAP
+// sum can be negative values too
+// If sum = -5; dp[idx][sum] ?
 
 class Solution
 {
