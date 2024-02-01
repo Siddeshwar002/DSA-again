@@ -22,6 +22,8 @@ int LCS(int i, int j, string s1, string s2)
 //     return LCS(0, 0, text1, text2);
 // }
 
+// ***********************************************************************************************
+
 // ! DP = Memoization
 // * 46 / 47 testcases passed
 
@@ -50,13 +52,15 @@ int longestCommonSubsequence(string text1, string text2)
     return LCS(0, 0, text1, text2, dp);
 }
 
+// ***********************************************************************************************
+
 // ! DP - Tabulation
 int longestCommonSubsequence(string s1, string s2)
 {
     int n = s1.size();
     int m = s2.size();
 
-    vector<vector<int>> dp(n + 1, vector<int>(m + 1, -1)); // Create a DP table
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0)); // Create a DP table
 
     // Initialize the base cases
     for (int i = 0; i <= n; i++)

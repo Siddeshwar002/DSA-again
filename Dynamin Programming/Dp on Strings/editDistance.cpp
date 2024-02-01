@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO : SAME TIME COMPLEXITY = O(M*N)
-
-// ! DP : memoization
+// beat 96% of other submissions' runtime.
+// DP : memoization
 int editDistanceUtil(string &S1, string &S2, int i, int j, vector<vector<int>> &dp)
 {
     // Base cases
@@ -34,7 +33,9 @@ int minDistance(string &S1, string &S2)
     return editDistanceUtil(S1, S2, n - 1, m - 1, dp);
 }
 
-// ! DP : Tabulation
+// **********************************************************************************************
+// DP : Tabulation
+
 int minDistance2(string &S1, string &S2)
 {
 
@@ -46,12 +47,18 @@ int minDistance2(string &S1, string &S2)
     // Base Case = Initialize the first row and column
     for (int i = 0; i <= n; i++)
     {
+        // if there is no string in S2
+        // you need 'i' operations to make both same
         dp[i][0] = i;
     }
+
     for (int j = 0; j <= m; j++)
     {
+        // if there is no string in S1
+        // you need 'j' operations to make both same
         dp[0][j] = j;
     }
+
 
     for (int i = 1; i <= n; i++)
     {
