@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Longest Prefix which is also Suffix
+
 vector<int> KMP(string s)
 {
     vector<int> Pi(s.length());

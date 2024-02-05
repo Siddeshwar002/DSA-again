@@ -4,6 +4,9 @@ using namespace std;
 #define loop(i, n) for (int i = 0; i < n; ++i)
 #define print(x) std::cout << (x) << std::endl
 
+// KMP String matching algotithm
+// Uses 'Z' Function to match
+
 vector<int> KMP(string s, string p)
 {
     s = p + '#' + s;
