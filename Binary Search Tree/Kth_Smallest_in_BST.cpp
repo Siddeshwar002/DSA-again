@@ -13,10 +13,11 @@ int KthSmallestHelper(TreeNode *root, int k, int leftEle, int &ans)
 {
     if (!root)
         return 0;
-    // if (leftEle + 1 > k)
-    //     return 0;
 
+    // first call on left side
     int lh = KthSmallestHelper(root->left, k, leftEle, ans);
+    
+    // update the count of members on the left side
     leftEle += lh;
     int rh = KthSmallestHelper(root->right, k, leftEle + 1, ans);
 

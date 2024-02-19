@@ -7,6 +7,7 @@ struct node
     struct node *left, *right;
 };
 
+// two trees are being compared
 bool isIdentical(node *node1, node *node2)
 {
     // * both are NULL they are same

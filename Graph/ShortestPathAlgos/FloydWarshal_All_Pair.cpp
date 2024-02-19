@@ -13,8 +13,11 @@ public:
             {
                 if (matrix[i][j] == -1)
                 {
+                    // no edge
                     matrix[i][j] = 1e9;
                 }
+
+                // distance to the same node
                 if (i == j)
                     matrix[i][j] = 0;
             }

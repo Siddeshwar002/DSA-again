@@ -5,7 +5,7 @@ using namespace std;
 #define print(x) std::cout << (x) << std::endl
 
 // KMP String matching algotithm
-// Uses 'Z' Function to match
+// Uses 'Pi' Function to match
 
 vector<int> KMP(string s, string p)
 {

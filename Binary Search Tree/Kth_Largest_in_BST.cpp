@@ -18,16 +18,19 @@ int KthSmallestHelper(Node *root, int k, int RightEle, int &ans)
 {
     if (!root)
         return 0;
-    // if (RightEle + 1 > k)
-    //     return 0;
 
+    // first call right
     int rh = KthSmallestHelper(root->right, k, RightEle, ans);
+
+    // update its right height
     RightEle += rh;
+
     int lh = KthSmallestHelper(root->left, k, RightEle + 1, ans);
 
     if (RightEle + 1 == k)
         ans = root->data;
 
+    // return count of all the elements
     return lh + rh + 1;
 }
 

@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+// DFS
 
 class Solution
 {
 private:
-    void dfs(int row, int col, vector<vector<int>> &vis,
-             vector<vector<int>> &grid, vector<pair<int, int>> &vec, int row0,
-             int col0)
+    void dfs(int row, int col, vector<vector<int>> &vis, vector<vector<int>> &grid, vector<pair<int, int>> &vec, int row0, int col0)
     {
         // mark the cell as visited
         vis[row][col] = 1;

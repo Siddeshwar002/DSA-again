@@ -56,7 +56,8 @@ Node *connect(Node *root)
 
         if (cur != NULL)
         {
-            cur->next = q.front(); // Set the next pointer
+            cur->next = q.front(); 
+            // Set the next pointer
 
             // Enqueue the children if they exist
             if (cur->left)
@@ -65,7 +66,8 @@ Node *connect(Node *root)
                 q.push(cur->right);
         }
         else if (!q.empty())
-        {                 // If cur is NULL and the queue is not empty
+        {   
+            // If cur is NULL and the queue is not empty
             q.push(NULL); // Add a marker for the end of the level
         }
     }

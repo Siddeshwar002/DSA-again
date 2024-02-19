@@ -7,7 +7,7 @@ struct node
     struct node *left, *right;
 };
 
-node *prev = NULL;
+node *previous = NULL;
 
 void flatten(node *root)
 {
@@ -17,7 +17,7 @@ void flatten(node *root)
     flatten(root->right);
     flatten(root->left);
 
-    root->right = prev;
+    root->right = previous;
     root->left = NULL;
-    prev = root;
+    previous = root;
 }

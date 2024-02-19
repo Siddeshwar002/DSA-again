@@ -7,7 +7,9 @@ string longestPalindrome(string s)
 {
     int n = s.length();
     vector<vector<int>> IsPallindrom(n + 1, vector<int>(n + 1, 0));
+
     vector<int> dp(n + 1, 1);
+    // this vector is not necessary
 
     int idx = 0;
     int maxLen = 1;
@@ -24,13 +26,10 @@ string longestPalindrome(string s)
                 IsPallindrom[l][r] = 1;
                 dp[l] = 2;
             }
-            else if (gap > 1 and s[l] == s[r])
+            else if (gap > 1 and s[l] == s[r] && IsPallindrom[l + 1][r - 1])
             {
-                if (IsPallindrom[l + 1][r - 1])
-                {
-                    dp[l] = r - l + 1;
-                    IsPallindrom[l][r] = 1;
-                }
+                dp[l] = r - l + 1;
+                IsPallindrom[l][r] = 1;
             }
 
             if (dp[l] > maxLen)

@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// * Works fine for Find Beautiful Indices in the Given Array I
+// Works fine for Find Beautiful Indices in the Given Array I
 
-// ! but
-// ! Doesn't work for Find Beautiful Binary String !!
-// ! 231/232 PASSED
+// but
+// Doesn't work for Find Beautiful Binary String !!
+// 231/232 PASSED
 
 // ? Refer Find_Beautiful_Indices_in_the_Given_Array_II.cpp
 // ? for a better CODE

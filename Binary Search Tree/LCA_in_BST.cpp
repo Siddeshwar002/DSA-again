@@ -24,6 +24,9 @@ TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 }
 
 // ! Iterative Approach
+// This works becuase you are just going down in one diretction
+// there is no coming back moving in the other direction
+// you are sure that there is answer in the path where you are moving
 TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 {
     TreeNode *cur = root;

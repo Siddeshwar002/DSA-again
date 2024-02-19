@@ -21,13 +21,13 @@ public:
         pushAll(root);
     }
 
-    /** @return whether we have a next smallest number */
+    /**whether we have a next smallest number */
     bool hasNext()
     {
         return !myStack.empty();
     }
 
-    /** @return the next smallest number */
+    /**the next smallest number */
     int next()
     {
         TreeNode *tmpNode = myStack.top();
@@ -39,8 +39,7 @@ public:
 private:
     void pushAll(TreeNode *node)
     {
-        for (; node != NULL; myStack.push(node), node = node->left)
-            ;
+        for (; node != NULL; myStack.push(node), node = node->left);
     }
 };
 
