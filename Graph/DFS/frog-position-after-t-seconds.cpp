@@ -4,6 +4,7 @@
 using namespace std;
 
 // DFS approach
+// Probability concepts
 
 class Solution
 {

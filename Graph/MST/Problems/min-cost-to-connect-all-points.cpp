@@ -1,6 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 1.
+// Prims Algorithm
+// Accepted
+// Time efficiency better than Kruskals
+class Solution
+{
+public:
+    int minCostConnectPoints(vector<vector<int>> &points)
+    {
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
+        vector<bool> vis(points.size());
+        pq.push({0, 0});
+        int mstWt = 0;
+
+        while (!pq.empty())
+        {
+            int wt = pq.top().first;
+            int node = pq.top().second;
+            pq.pop();
+
+            if (vis[node])
+                continue;
+            vis[node] = true;
+            mstWt += wt;
+
+            for (int i = 0; i < points.size(); i++)
+            {
+                if (!vis[i])
+                {
+                    int nextNode = i;
+                    int newWt = abs(points[node][0] - points[nextNode][0]) +
+                                abs(points[node][1] - points[nextNode][1]);
+                    pq.push({newWt, nextNode});
+                }
+            }
+        }
+        return mstWt;
+    }
+};
+
+// 2.
+// using Kruskal's approach to solve the problem
+// but this give TLE -> 69/72  test cases passed
+
 class DisjointSet
 {
     vector<int> rank, parent, size;
@@ -68,27 +112,35 @@ public:
 class Solution
 {
 public:
-    // Function to find sum of weights of edges of the Minimum Spanning Tree.
-    int spanningTree(int V, vector<vector<int>> adj[])
+    int minCostConnectPoints(vector<vector<int>> &points)
     {
         vector<pair<int, pair<int, int>>> edges;
-        for (int i = 0; i < V; i++)
+        for (int i = 0; i < points.size(); i++)
         {
-            for (auto it : adj[i])
+            for (int j = i + 1; j < points.size(); j++)
             {
-                int adjNode = it[0];
-                int wt = it[1];
-                int node = i;
+                if (i == j)
+                    continue;
+                int u = i;
+                int v = j;
+                int wt = abs(points[i][0] - points[j][0]) +
+                         abs(points[i][1] - points[j][1]);
 
-                edges.push_back({wt, {node, adjNode}});
+                edges.push_back({wt, {u, v}});
             }
         }
 
-        // DSU
-        DisjointSet ds(V);
-
         // Soritng edges by weights
         sort(edges.begin(), edges.end());
+
+        for (auto edge : edges)
+            cout << edge.first << " " << edge.second.first << " "
+                 << edge.second.second << endl;
+
+        // DSU
+        DisjointSet ds(points.size());
+        vector<bool> vis(points.size(), false);
+
         int mstWt = 0;
 
         for (auto it : edges)
@@ -99,6 +151,7 @@ public:
 
             // if there in diff component
             // join them
+
             if (ds.findUPar(u) != ds.findUPar(v))
             {
                 mstWt += wt;
@@ -109,3 +162,8 @@ public:
         return mstWt;
     }
 };
+
+int main()
+{
+    vector<vector<int>> points = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
+}

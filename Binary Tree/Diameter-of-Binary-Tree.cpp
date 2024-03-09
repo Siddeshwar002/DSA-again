@@ -16,7 +16,7 @@ public:
     {
         int diameter = 0;
         height(root, diameter);
-        return diameter;
+        return diameter + 1;
     }
 
 private:

@@ -7,7 +7,7 @@ using namespace std;
 // !Dosent work for n <= 10^5
 // ! Need a Advanced CODE
 
-// !
+// ! problem specific CODE
 
 vector<vector<int>> countOfPairs(int n, int x, int y)
 {
@@ -60,7 +60,6 @@ vector<vector<int>> countOfPairs(int n, int x, int y)
                     // * Anyways its gonna be computed when neighbor becomes the starting index
                     // allDistance[neighbor][i] = distances[neighbor];
                 }
-                
             }
 
             // cout << "After" << endl;
