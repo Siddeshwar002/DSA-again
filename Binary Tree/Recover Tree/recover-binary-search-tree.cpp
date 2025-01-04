@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include "../../stdc++.h"
+
 using namespace std;
 
 struct TreeNode
@@ -16,8 +18,10 @@ public:
         if (!root)
             return;
 
+        // Left
         solve(root->left, prev, first, mid, last);
 
+        // Visited the node
         if (prev != nullptr && (root->val < prev->val))
         {
             if (first == nullptr)
@@ -30,6 +34,8 @@ public:
         }
 
         prev = root;
+
+        // Right
         solve(root->right, prev, first, mid, last);
 
         return;

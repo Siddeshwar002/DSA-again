@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 void nextPermutation(vector<int> &nums)

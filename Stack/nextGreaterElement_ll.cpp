@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// TC : O(4N)
+// SC : O(2N) + (N)
 vector<int> nextGreaterElements(vector<int> &nums)
 {
     stack<int> st;

@@ -23,6 +23,7 @@ void bfsTraversal(vector<vector<int>> &adj, int startNode)
 
         // for tree :
         // push leftChild and RightChild into the queue
+
         // for Graph :
         // Push all the neighbours
 

@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Montonic stack concept
 vector<int> nextGreaterElements(vector<int> &nums)
 {
     stack<int> st;

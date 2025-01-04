@@ -1,15 +1,18 @@
-#include <bits/stdc++.h>
+#include "stdc++.h"
 using namespace std;
 
-//* Given a string s, partition s such that every
-//* substring
-//* of the partition is a
-//* palindrome.
-//* Return all possible palindrome partitioning of s.
+/* QUESTION :
+Given a string s, partition s such that every
+substring
+of the partition is a
+palindrome.
+Return all possible palindrome partitioning of s.
+*/
 
-//! TC - O(2^N) * O(N/2)
-//! O(2^N) --> Recursive Calls
-//! O(N/2)   --> To check Is Pallindrom
+/* TIME COMPLEXITY :
+TC - O(2^N) * O(N/2)
+O(2^N) --> Recursive Calls
+O(N/2)   --> To check Is Pallindrom */
 
 // TODO : Can be improved by using DP
 
@@ -34,7 +37,7 @@ void printPartitions(string str, int idx, vector<string> vec, vector<vector<stri
 
     for (int i = idx; i < str.length(); i++)
     {
-        // * Partition the string only if it is a Pallindrom
+        // * Partition the string : only if it is a Pallindrom
         if (IsPallindrom(str, idx, i))
         {
             vec.push_back(str.substr(idx, i - idx + 1));

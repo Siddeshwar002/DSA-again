@@ -1,6 +1,10 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/?envType=list&envId=55af7bu7
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <stack>
 using namespace std;
 
 // Approach 1 :
@@ -130,8 +134,9 @@ public:
 };
 
 // *****************************************************************************************************
-// Approach 3 : 
+// Approach 3 :
 // Tabulation
+// Accepted
 
 class Solution
 {
@@ -155,7 +160,7 @@ public:
                     }
                     else
                     {
-                        // Ensure transactions > 0 before considering sell option
+                        // base condition : Ensure transactions > 0 before considering sell option
                         int sellOption = (transactions > 0) ? dp[idx + 1][!buy][transactions - 1] + prices[idx] : 0;
                         int skipOption = dp[idx + 1][buy][transactions];
                         dp[idx][buy][transactions] = max(sellOption, skipOption);

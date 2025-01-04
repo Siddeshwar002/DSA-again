@@ -2,7 +2,7 @@
 using namespace std;
 
 // Tabulation
-class Solution
+class Solutionw
 {
 public:
     int mergeStones(vector<int> &stones, int k)

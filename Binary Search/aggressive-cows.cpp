@@ -1,6 +1,4 @@
-
-
-#include <bits/stdc++.h>
+#include "../stdc++.h"
 using namespace std;
 
 bool canWePlace(vector<int> &stalls, int dist, int cows)
@@ -20,13 +18,17 @@ bool canWePlace(vector<int> &stalls, int dist, int cows)
     }
     return false;
 }
+
 int aggressiveCows(vector<int> &stalls, int k)
 {
-    int n = stalls.size(); // size of array
+    int n = stalls.size();
+
     // sort the stalls[]:
     sort(stalls.begin(), stalls.end());
 
+    /* high = max_element - min_element */
     int low = 1, high = stalls[n - 1] - stalls[0];
+
     // apply binary search:
     while (low <= high)
     {

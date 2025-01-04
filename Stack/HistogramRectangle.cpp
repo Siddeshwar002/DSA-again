@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// ! ********************************************************************
-// * Approach 1 : Optimized
+// ********************************************************************
+// Approach 1 : Optimized
 
 int largestRectangleArea(vector<int> &arr)
 {
@@ -28,46 +28,54 @@ int largestRectangleArea(vector<int> &arr)
     return area;
 }
 
-// ! ********************************************************************
-// * Approach 2 : leftSmall, rightSmall array
+// ********************************************************************
+// Approach 2 : leftSmall, rightSmall array
 
 int largestRectangleArea(vector<int> &heights)
 {
     int n = heights.size();
     stack<int> st;
     int leftsmall[n], rightsmall[n];
+
+    // calculate the left small
     for (int i = 0; i < n; i++)
     {
         while (!st.empty() && heights[st.top()] >= heights[i])
-        {
             st.pop();
-        }
+        
         if (st.empty())
-            leftsmall[i] = 0;
+            leftsmall[i] = -1;
         else
-            leftsmall[i] = st.top() + 1;
+            leftsmall[i] = st.top();
+        
         st.push(i);
     }
+
+
     // clear the stack to be re-used
     while (!st.empty())
         st.pop();
 
+
+    // calculate the right small
     for (int i = n - 1; i >= 0; i--)
     {
         while (!st.empty() && heights[st.top()] >= heights[i])
             st.pop();
 
         if (st.empty())
-            rightsmall[i] = n - 1;
+            rightsmall[i] = n;
         else
-            rightsmall[i] = st.top() - 1;
+            rightsmall[i] = st.top();
 
         st.push(i);
     }
+
+    // Calculate the area for each index
     int maxA = 0;
     for (int i = 0; i < n; i++)
-    {
-        maxA = max(maxA, heights[i] * (rightsmall[i] - leftsmall[i] + 1));
-    }
+        maxA = max(maxA, heights[i] * (rightsmall[i] - leftsmall[i] - 1));
+
     return maxA;
+
 }

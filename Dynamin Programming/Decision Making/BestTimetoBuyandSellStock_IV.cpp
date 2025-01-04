@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/?envType=list&envId=55af7bu7
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <stack>
 using namespace std;
 
 // Tabulatino

@@ -1,5 +1,9 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 using namespace std;
+
+// Correct code :
 
 //   int minPath(vector<vector<int>> &grid, int i, int row, int j, int col, vector<vector<int>> &dp)
 // {
@@ -21,7 +25,7 @@ using namespace std;
 //     return dp[i][j] = min(dp[i+1][j], dp[i][j+1]);
 // }
 
-// ! Improvised code :
+// Improvised Correct code :
 
 int minPath(vector<vector<int>> &grid, int i, int row, int j, int col, vector<vector<int>> &dp)
 {
@@ -61,7 +65,7 @@ int minPathSum(vector<vector<int>> &grid)
     // return ans;
 }
 
-// ! ***********************************************************************
+// ! *************************************************************************************************************************************************
 // ! Tabulation :
 
 int minPathSum2(vector<vector<int>> &grid)

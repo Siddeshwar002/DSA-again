@@ -1,6 +1,10 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/?envType=list&envId=55af7bu7
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <stack>
 using namespace std;
 
 // Memoization
@@ -25,6 +29,7 @@ public:
         }
         else
         {
+            // Cooldown idx + 2
             int sellOption = solve(prices, idx + 2, !buy, memo) + prices[idx];
             int skipOption = solve(prices, idx + 1, buy, memo);
             return memo[idx][buy] = max(sellOption, skipOption);
@@ -61,6 +66,7 @@ public:
                 }
                 else
                 {
+                    // Cooldown idx + 2
                     int sellOption = dp[idx + 2][!buy] + prices[idx];
                     int skipOption = dp[idx + 1][buy];
                     dp[idx][buy] = max(sellOption, skipOption);

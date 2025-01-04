@@ -53,6 +53,7 @@ bool wordBreak(string s, vector<string> &dict)
     vector<bool> dp(s.length() + 1, false);
     return word(s, dict, 0, dp);
 }
+
 // ! ***************************************************************************
 
 // * Correct Code
@@ -79,8 +80,8 @@ bool word(string s, vector<string> &dict, int start, vector<int> &dp)
     return dp[start] = false;
 }
 
-// ! ***************************************************************************
-// ! Tabulation
+// ***************************************************************************
+// Tabulation
 bool wordBreak(string s, vector<string> &wordDict)
 {
     vector<int> dp(s.length() + 1, 0);

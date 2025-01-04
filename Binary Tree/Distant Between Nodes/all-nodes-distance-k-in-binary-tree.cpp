@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include "../../stdc++.h"
 using namespace std;
 
 struct TreeNode
@@ -45,7 +46,7 @@ public:
         return (left || right);
     }
 
-    // normal DFS
+    // Normal DFS
     void dfs(TreeNode *root, int k, vector<int> &ans)
     {
         if (root == nullptr || k < 0)
@@ -70,7 +71,7 @@ public:
         solve(root, target, h, Nodes);
         vector<int> ans;
 
-        // DFS from all the Parent nodes  of Target to find the answer
+        // DFS from all the Parent nodes of Target to find the answer
         for (auto Node : Nodes)
         {
             if (Node.second.second == 0)
@@ -84,7 +85,7 @@ public:
             }
         }
 
-        // DFS down from the Target Node
+        // DFS from the Target Node to Down
         dfs(target, k, ans);
 
         return ans;

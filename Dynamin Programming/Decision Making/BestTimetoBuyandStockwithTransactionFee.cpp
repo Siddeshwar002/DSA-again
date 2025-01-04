@@ -23,6 +23,7 @@ public:
         }
         else
         {
+            // Fees
             int sellOption = solve(prices, idx + 1, !buy, memo, fee) + prices[idx] - fee;
             int skipOption = solve(prices, idx + 1, buy, memo, fee);
             return memo[idx][buy] = max(sellOption, skipOption);
@@ -58,6 +59,7 @@ public:
                 }
                 else
                 {
+                    // Fees
                     int sellOption = dp[idx + 1][!buy] + prices[idx] - fee;
                     int skipOption = dp[idx + 1][buy];
                     dp[idx][buy] = max(sellOption, skipOption);

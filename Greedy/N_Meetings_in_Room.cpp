@@ -1,26 +1,40 @@
-#include <bits/stdc++.h>
+#include <utility>
+#include <algorithm>
+#include <vector>
+
 using namespace std;
 
 int maxMeetings(int start[], int end[], int n)
 {
-    pair<int,int> a[n+1];
-    for (int i=0;i<n;i++){
+    pair<int, int> a[n + 1];
+
+    // creating pair <endTime, idx>
+    // To access the start time of the particular job
+    // Because we are sorting the endTime[] which will alter the indexing if not stored
+    for (int i = 0; i < n; i++)
+    {
         a[i].first = end[i];
         a[i].second = i;
     }
 
-    sort(a, a+n);
+    sort(a, a + n);
 
     int time_limit = a[0].first;
 
     vector<int> m;
 
+    // add the first job : the one which finishes the earliest
     m.push_back(a[0].second + 1);
 
-    for(int i=1; i<n; i++){
+    for (int i = 1; i < n; i++)
+    {
+        // strictly greater than
         if (start[a[i].second] > time_limit)
         {
+            // pushing job ids
             m.push_back(a[i].second + 1);
+
+            // updating the time_limit
             time_limit = a[i].first;
         }
     }
@@ -36,6 +50,3 @@ int main()
     int ans = maxMeetings(start, end, N);
     return 0;
 }
-
-// 48 43 61 54 99 84 3 3 59 30 45 72 24 87 21 48 54 88 8 67 41 64 87 54 5 62 87 33 74 92
-// 150 67 137 131 139 115 49 6 117 126 59 109 27 96 73 60 99 108 50 145 68 104 102 82 7 126 118 93 148 150

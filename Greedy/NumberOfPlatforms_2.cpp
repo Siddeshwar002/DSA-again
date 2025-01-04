@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include "stdc++.h"
 using namespace std;
 
 int findPlatform(int arr[], int dep[], int n)
@@ -11,16 +11,21 @@ int findPlatform(int arr[], int dep[], int n)
         times[i] = make_pair(arr[i], dep[i]);
     }
 
+    // Sorts according to the first element
     sort(times, times + n);
 
     if (n == 0)
         return -1;
 
     int i = 1;
+
+    // You always need atleast on track
     int ans = 1;
 
+    // Allot the first arrival train to the track - 1
     q.push(times[0].second);
 
+    // For all the trains
     while (i < n)
     {
         int minEle = q.top();
