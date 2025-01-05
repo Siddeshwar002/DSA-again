@@ -6,8 +6,14 @@ class LFUCache
 private:
     int capacity;
     int minFreq;
+    
+    // key -> {value, freq}
     unordered_map<int, pair<int, int>> data;
+    
+    // freq -> {list of nodes which are present at that frequency}
     unordered_map<int, list<int>> freqData;
+    
+    // key -> {adddress of the node}
     unordered_map<int, list<int>::iterator> keyAddress;
 
 public:
