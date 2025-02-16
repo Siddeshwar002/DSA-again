@@ -3,6 +3,9 @@ using namespace std;
 
 // This funciton returns total number of elements which are less than element 'mid'
 // 'md' is the middle index not 'mid'
+// this is basically the upper bound function 
+// This gives us the index of element which is greater than the element.
+// So all the elements to the left are smaller than that element
 int countSmallerThanMid(vector<int> &row, int mid)
 {
     int l = 0, h = row.size() - 1;

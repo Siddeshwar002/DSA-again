@@ -10,11 +10,11 @@ struct node
 // two trees are being compared
 bool isIdentical(node *node1, node *node2)
 {
-    // * both are NULL they are same
+    // both are NULL they are same
     if (node1 == NULL && node2 == NULL)
         return true;
 
-    // * only one among them is NULL then condition fails
+    // only one among them is NULL
     else if (node1 == NULL || node2 == NULL)
         return false;
 

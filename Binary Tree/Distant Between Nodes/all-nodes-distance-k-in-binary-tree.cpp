@@ -46,12 +46,13 @@ public:
         return (left || right);
     }
 
-    // Normal DFS
+    // Normal DFS code
     void dfs(TreeNode *root, int k, vector<int> &ans)
     {
         if (root == nullptr || k < 0)
             return;
-
+        
+        // Answer reached
         if (k == 0)
         {
             ans.push_back(root->val);
@@ -68,19 +69,29 @@ public:
     {
         vector<pair<TreeNode *, pair<int, int>>> Nodes;
         int h = k;
+
+        // This function collects all the nodes above the target node.
+        // It keeps the direction they are present : this helps us tell on which dorection to move next time.
+        // This direction is usually the other side from where the target node was existing.
+        // This also keeps track of how much distance to move in this direction.
         solve(root, target, h, Nodes);
+
         vector<int> ans;
 
-        // DFS from all the Parent nodes of Target to find the answer
+        // DFS from all the Parent nodes (all nodes which are above Target) of Target to find the answer
         for (auto Node : Nodes)
         {
             if (Node.second.second == 0)
                 ans.push_back(Node.first->val);
             else
-            {
+            {  
+                // target was found on left
                 if (Node.second.first == 1)
+                    // so move right
                     dfs(Node.first->right, Node.second.second - 1, ans);
+                // target was found on right 
                 else if (Node.second.first == 2)
+                    // so move left
                     dfs(Node.first->left, Node.second.second - 1, ans);
             }
         }

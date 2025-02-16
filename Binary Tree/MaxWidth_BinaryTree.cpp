@@ -48,6 +48,7 @@ int MaxWidth(node *root)
 
         pair<node *, int> p = q.front();
         q.pop();
+
         minIdx = min(minIdx, p.second);
         maxIdx = max(maxIdx, p.second);
 

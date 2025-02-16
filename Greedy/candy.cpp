@@ -1,6 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Approach 1 : 
+
+// Using map store indices of the elements
+// traversing the entire map and assigning cholates to the smallest members first
+// then comparing the assigned chocolates for the neighbours and taking the decision for the members coming later
+
+// Edges case handling : 
+//      For 0th and n-1th member
+//      is the elements are equal and not equal
+
+// TC : O(2N)
+// SC : O(N)
+
 class Solution {
 public:
     int candy(vector<int>& ratings) {
@@ -40,5 +53,54 @@ public:
             cout<<x<<" ";
         }
         return res;
+    }
+};
+
+// Approach 2 : 
+// Slope methtod
+
+// TC : O(N)
+// SC : O(N)
+
+class Solution 
+{
+public:
+    int candy(vector<int>& ratings) 
+    {
+        int n=ratings.size();
+        int i=1;
+        int sum=1;
+
+        while(i<n)
+        {
+            if(ratings[i]==ratings[i-1])
+            {
+                sum+=1;
+                i++;
+                continue;
+            }
+
+            int peak=1;
+            while(i<n && ratings[i]>ratings[i-1])
+            {
+               peak+=1;
+               sum+=peak;
+               i++;
+            }
+            
+            int down=1;
+            while(i<n && ratings[i]<ratings[i-1])
+            {
+                sum+=down;
+                down+=1;
+                i++;
+            }
+            
+            if(down>peak)
+            {
+                sum=sum+(down-peak);
+            }
+        }
+        return sum;
     }
 };

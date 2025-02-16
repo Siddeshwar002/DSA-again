@@ -21,11 +21,18 @@ void AllTraversals(node *root, vector<int> &Preorder, vector<int> &Inorder, vect
 {
     if (root == NULL)
         return;
-
+    
+    // 1. PreOrder
     Preorder.push_back(root->data);
+
     AllTraversals(root->left, Preorder, Inorder, PostOrder);
+    
+    // 2. Inorder
     Inorder.push_back(root->data);
+    
     AllTraversals(root->right, Preorder, Inorder, PostOrder);
+    
+    // 3. PostOrder
     PostOrder.push_back(root->data);
     return;
 }

@@ -23,14 +23,19 @@ int findMaxPathSum(TreeNode *root, int &maxi)
     if (root == NULL)
         return 0;
 
-    // ! This handles the negative value nodes
+    // This handles the negative value nodes
     // * max(0 , leftRetured Value);
     // * max(0 , RightRetured Value);
 
     int leftMaxPath = max(0, findMaxPathSum(root->left, maxi));
     int rightMaxPath = max(0, findMaxPathSum(root->right, maxi));
+    
     int val = root->val;
+    
+    // for each node you consider both from the right and left
     maxi = max(maxi, (leftMaxPath + rightMaxPath) + val);
+    
+    // but while returning you just return the max(leftMax , RightMax) + currentValue
     return max(leftMaxPath, rightMaxPath) + val;
 }
 

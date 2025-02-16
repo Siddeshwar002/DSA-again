@@ -7,60 +7,44 @@
 #include <stack>
 using namespace std;
 
-// Stack Approach
+// Approach 1 : Stack
+// Monotonic Stack
+// My own code : Beats 100% of the solutions
 // TC : O(N)
-class Solution
-{
+// SC : O(N)
+class Solution {
 public:
-    int maxProfit(vector<int> &prices)
-    {
-        int profit = 0;
-
+    int maxProfit(vector<int>& prices) {
+        int res = 0;
+        int i = 0;
         stack<int> st;
-        for (auto ele : prices)
-        {
-            if (st.empty())
-                st.push(ele);
-            else if (st.size() == 1 && st.top() > ele)
-            {
+        
+        // awesome way to handle the sorted arrays [1,2,3,4,5]
+        prices.push_back(-1);
+
+        while(i < prices.size()){
+            if(!st.empty() && st.top() > prices[i]){
+                int cur = st.top();
                 st.pop();
-                st.push(ele);
+                int ans = 0;
+
+                while(!st.empty()){
+                    ans = max(ans , cur - st.top());
+                    st.pop();
+                }
+                res += ans;
             }
-            else if (st.size() == 2 && st.top() > ele)
-            {
-                int F = st.top();
-                st.pop();
-                int S = st.top();
-                st.pop();
-                profit += (F - S);
-                st.push(ele);
-            }
-            else if (st.size() == 1 && st.top() < ele)
-            {
-                st.push(ele);
-            }
-            else if (st.size() == 2 && st.top() < ele)
-            {
-                st.pop();
-                st.push(ele);
-            }
+            st.push(prices[i]);
+            i++;
         }
 
-        if (st.size() == 2)
-        {
-            int F = st.top();
-            st.pop();
-            int S = st.top();
-            st.pop();
-
-            profit += (F - S);
-        }
-        return profit;
+        return res;
     }
 };
 
-// *****************************************************************************************************
+// Approch 2 : Mathematics ∑
 // One-pass solutino
+// Using Math 
 // without using stack
 
 class Solution
@@ -83,8 +67,11 @@ public:
     }
 };
 
-// *****************************************************************************************************
+// Approach 3 : 
 // Memoization :
+// You can either buy or skip
+// You can eihter sell or skip
+// you maintain a flag to change status if you have bought it or if you have sold it
 
 long getAns(long *Arr, int ind, int buy, int n, vector<vector<long>> &dp)
 {
@@ -116,8 +103,8 @@ long getMaximumProfit(long *Arr, int n)
     return ans;
 }
 
-// *****************************************************************************************************
-// Tabulation :
+// Apprach 4 :
+// Same code writting in Tabulation :
 
 long getMaximumProfit(long *Arr, int n)
 {

@@ -17,8 +17,8 @@ struct node *newNode(int data)
     return (node);
 }
 
-// ! SMART code
-// ! using length to track
+// SMART code
+// using length to track
 
 void recursion(node *root, int level, vector<int> &res)
 {

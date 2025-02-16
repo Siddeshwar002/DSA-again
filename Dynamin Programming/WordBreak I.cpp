@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// * CORRECT
+// CORRECT Code : 
+// Recursion, TLE solution : 
 
 bool word(string s, vector<string> &dict, int start)
 {
@@ -21,8 +22,8 @@ bool wordBreak(string s, vector<string> &dict)
     return word(s, dict, 0);
 }
 
-// ! ***************************************************************************
-// ! Wrong DP
+// Same Above code tried to convert to memoization
+// Wrong DP code
 
 bool word(string s, vector<string> &dict, int start, vector<bool> &dp)
 {
@@ -54,9 +55,9 @@ bool wordBreak(string s, vector<string> &dict)
     return word(s, dict, 0, dp);
 }
 
-// ! ***************************************************************************
 
-// * Correct Code
+// Accepted solution : 
+// Correct DP Memoization Code 
 bool word(string s, vector<string> &dict, int start, vector<int> &dp)
 {
     if (start == s.length())
@@ -80,8 +81,16 @@ bool word(string s, vector<string> &dict, int start, vector<int> &dp)
     return dp[start] = false;
 }
 
-// ***************************************************************************
-// Tabulation
+bool wordBreak(string s, vector<string> &dict)
+{
+    vector<int> dp(s.length(), -1);
+
+    // return [0] : result from the starting index 0
+    return word(s, dict, 0, dp);
+}
+
+// Accepted solution : 
+// Correct Tabulation Code
 bool wordBreak(string s, vector<string> &wordDict)
 {
     vector<int> dp(s.length() + 1, 0);
@@ -103,11 +112,6 @@ bool wordBreak(string s, vector<string> &wordDict)
 
     // return if there exist words for len = s.length();
     return dp[s.length()];
-}
-bool wordBreak(string s, vector<string> &dict)
-{
-    vector<int> dp(s.length(), -1);
-    return word(s, dict, 0, dp);
 }
 
 int main()
