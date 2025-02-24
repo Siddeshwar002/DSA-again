@@ -2,7 +2,7 @@
 using namespace std;
 
 // 1.
-// using BFS method
+// using BFS method - Topological sort
 // Accepted
 
 class Solution
@@ -46,9 +46,13 @@ public:
                     q.push(edge);
             }
         }
+
         if (cnt == numCourses)
             return true;
-
+        
+        // cnt < numCourses
+        // When there exists cycle the cnt will always be less than the totalnodes 
+        // and that it the condition when you can return false.
         return false;
     }
 };
@@ -57,6 +61,7 @@ public:
 // BFS method
 // same approach as above but
 // Production level code
+// This usese inDegeree instead of outDegree
 class Solution
 {
 public:

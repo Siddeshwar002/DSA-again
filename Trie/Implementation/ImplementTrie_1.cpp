@@ -59,6 +59,7 @@ public:
 
     bool startsWith(string prefix)
     {
-        return findNode(prefix) != nullptr;
+        TrieNode *node = findNode(word);
+        return node != nullptr;
     }
 };

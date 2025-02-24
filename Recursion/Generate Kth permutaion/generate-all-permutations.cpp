@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+// Efficient Approach using swaps
 class Solution
 {
 private:
     void recurPermute(int index, vector<int> &nums, vector<vector<int>> &ans)
     {
+        // When index reached end, consider the error
         if (index == nums.size())
         {
             ans.push_back(nums);
             return;
         }
+        
         for (int i = index; i < nums.size(); i++)
         {
             swap(nums[index], nums[i]);

@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int romanToInt(string s)
+class Solution {
+public:
+ int romanToInt(string s)
 {
     if (s.length() == 0)
         return 0;
@@ -22,18 +21,24 @@ int romanToInt(string s)
     int TotSum = 0;
 
     for (int i = 1; i < s.length(); i++)
-    {
+    {   
+        // Same Romans : take the summation
         if (s[i] == s[i - 1])
         {
             Cursum += mp[s[i]];
         }
+
+        // else
         else
         {
+            // if you get the sum so far grater than the current Roaman value
+            // add it to the answer.
             if (Cursum > mp[s[i]])
             {
                 TotSum += Cursum;
                 Cursum = mp[s[i]];
             }
+            // else subtrac the sum so far from the currentRoman value
             else
             {
                 int Tsum = mp[s[i]] - Cursum;
@@ -43,8 +48,4 @@ int romanToInt(string s)
     }
     return TotSum+Cursum;
 }
-
-int main()
-{
-    cout << "Ans : " << romanToInt("MDCCCLV");
-}
+};

@@ -105,7 +105,9 @@ public:
 
     void addLeftBoundary(Node* root, vector<int>& res) {
         Node* curr = root->left;
+        
         while (curr) {
+
             if (!isLeaf(curr)) 
                 res.push_back(curr->data);
 
@@ -121,8 +123,10 @@ public:
         vector<int> temp;
         
         while (curr) {
+            
             if (!isLeaf(curr)) 
                 temp.push_back(curr->data);
+
             if (curr->right) 
                 curr = curr->right;
             else 
@@ -137,6 +141,7 @@ public:
     }
 
     void addLeaves(Node* root, vector<int>& res) {
+        
         if (isLeaf(root)) {
             res.push_back(root->data);
             return;
@@ -159,9 +164,14 @@ public:
         // add the first root
         if (!isLeaf(root)) 
             res.push_back(root->data);
-
+        
+        // Left
         addLeftBoundary(root, res);
+
+        // Leaves
         addLeaves(root, res);
+
+        // Right
         addRightBoundary(root, res);
 
         return res;

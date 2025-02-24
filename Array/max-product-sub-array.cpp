@@ -10,6 +10,7 @@ class Solution {
 public:
   int maxProduct(vector<int> &nums) {
     int n = nums.size();
+    
     if (n == 0)
       return 0;
 
@@ -18,6 +19,7 @@ public:
     int ans = nums[0];
 
     for (int i = 1; i < n; i++) {
+      // Most important handling of the case
       if (nums[i] < 0)
         swap(maxProd, minProd);
 
