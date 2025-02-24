@@ -89,6 +89,7 @@ public:
 
         // Soritng edges by weights
         sort(edges.begin(), edges.end());
+
         int mstWt = 0;
 
         for (auto it : edges)
@@ -104,6 +105,8 @@ public:
                 mstWt += wt;
                 ds.unionBySize(u, v);
             }
+
+            // else if they are in the same component do nothing
         }
 
         return mstWt;

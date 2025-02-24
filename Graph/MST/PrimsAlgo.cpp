@@ -25,6 +25,7 @@ public:
 
             if (vis[node] == 1)
                 continue;
+            
             // add it to the mst
             vis[node] = 1;
             
