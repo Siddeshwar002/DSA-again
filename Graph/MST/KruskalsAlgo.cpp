@@ -11,6 +11,7 @@ public:
         rank.resize(n + 1, 0);
         parent.resize(n + 1);
         size.resize(n + 1);
+
         for (int i = 0; i <= n; i++)
         {
             parent[i] = i;
@@ -29,9 +30,11 @@ public:
     {
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
+        
         if (ulp_u == ulp_v)
             return;
-        if (rank[ulp_u] < rank[ulp_v])
+        
+            if (rank[ulp_u] < rank[ulp_v])
         {
             parent[ulp_u] = ulp_v;
         }
@@ -50,9 +53,11 @@ public:
     {
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
+        
         if (ulp_u == ulp_v)
             return;
-        if (size[ulp_u] < size[ulp_v])
+        
+            if (size[ulp_u] < size[ulp_v])
         {
             parent[ulp_u] = ulp_v;
             size[ulp_v] += size[ulp_u];

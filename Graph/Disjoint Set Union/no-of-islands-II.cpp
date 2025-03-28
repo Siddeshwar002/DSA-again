@@ -92,10 +92,12 @@ public:
         memset(vis, 0, sizeof vis);
         int cnt = 0;
         vector<int> ans;
+
         for (auto it : operators)
         {
             int row = it[0];
             int col = it[1];
+            
             if (vis[row][col] == 1)
             {
                 ans.push_back(cnt);
